@@ -3,8 +3,8 @@ const app = express();
 const nunjucks = require('nunjucks');
 const tweetBank = require('./tweetBank');
 const routes = require('./routes');
-
-
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
 //pseudocode for express.static
 // express.static = function(str) {
 // 	return function(req, res, next) {
