@@ -4,7 +4,25 @@ const nunjucks = require('nunjucks');
 const tweetBank = require('./tweetBank');
 const routes = require('./routes');
 
+
+//pseudocode for express.static
+// express.static = function(str) {
+// 	return function(req, res, next) {
+// 		var fileToServe = fs.readFile(str + '/' + req.url)
+// 		if(fileToServe) {
+// 			res.sendFile(str + '/' + req.url)
+// 		} else {
+// 			next();
+// 		}
+// 	}
+// }
+
+
+app.use(express.static('public'));
 app.use('/', routes);
+
+//static send
+
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
