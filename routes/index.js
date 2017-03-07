@@ -4,6 +4,7 @@ const router = express.Router();
 const tweetBank = require('../tweetBank');
 
 router.post('/tweets', function(req, res) {
+    console.log(req.body);
     var name = req.body.name;
     var text = req.body.text;
     tweetBank.add(name, text);
